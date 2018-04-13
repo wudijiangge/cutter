@@ -8,6 +8,7 @@ project(Cutter VERSION 1.3)
 
 option(CUTTER_ENABLE_JUPYTER "Enable Jupyter integration. Requires Python >= 3.3." ON)
 option(CUTTER_ENABLE_QTWEBENGINE "Use QtWebEngine for in-app Jupyter Browser. Unused if CUTTER_ENABLE_JUPYTER=OFF." ON)
+option(CUTTER_ENABLE_TESTS "Build QtTest tests" OFF)
 
 
 set(CMAKE_CXX_STANDARD 11)
@@ -95,5 +96,9 @@ if(CUTTER_ENABLE_JUPYTER)
     if(CUTTER_ENABLE_QTWEBENGINE)
         qt5_use_modules(Cutter WebEngineWidgets)
     endif()
+endif()
+
+if(CUTTER_ENABLE_TESTS)
+    add_subdirectory(test)
 endif()
 
