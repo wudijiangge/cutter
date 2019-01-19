@@ -101,8 +101,8 @@ after_success:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
       make INSTALL_ROOT=appdir install &&
       cp -r /usr/share/radare2 appdir/usr/share/ &&
-      mkdir -p appdir/bin/translations &&
-      cp ../src/translations/*.qm appdir/bin/translations/ &&
+      mkdir -p appdir/usr/bin/translations &&
+      cp ../src/translations/*.qm appdir/usr/bin/translations/ &&
       "$TRAVIS_BUILD_DIR/scripts/appimage_embed_python.sh" "$CUSTOM_PYTHON_PREFIX" appdir &&
       wget -c "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage" &&
       chmod a+x linuxdeployqt*.AppImage &&
