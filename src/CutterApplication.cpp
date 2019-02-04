@@ -22,6 +22,13 @@
 
 #include <cstdlib>
 
+/*!
+ * \class CutterApplication
+ * \brief This class is the QApplication that handles Cutter initialization.
+ *
+ * The class will setup the application information, load fonts, set command line
+ * arguments, load translations, load plugins, etc.
+ */
 CutterApplication::CutterApplication(int &argc, char **argv) : QApplication(argc, argv)
 {
     // Setup application information
@@ -228,6 +235,10 @@ void CutterApplication::loadPlugins()
     Core()->setCutterPlugins(plugins);
 }
 
+/*!
+ * \brief Load and translations depending on Language settings
+ * \c true on success
+ */
 bool CutterApplication::loadTranslations()
 {
     const QString &language = Config()->getCurrLocale().bcp47Name();

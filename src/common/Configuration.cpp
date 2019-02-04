@@ -107,10 +107,9 @@ void Configuration::setRecentFolder(const QString &dir)
     s.setValue("dir.recentFolder", QDir::toNativeSeparators(dir));
 }
 
-/**
- * @brief Configuration::setFilesTabLastClicked
- * Set the new file dialog last clicked tab
- * @param lastClicked
+/*!
+ * \brief Set the new file dialog last clicked tab
+ * \a lastClicked is the last clicked item index
  */
 void Configuration::setNewFileLastClicked(int lastClicked)
 {
@@ -136,8 +135,8 @@ void Configuration::resetAll()
 }
 
 /*!
- * \brief get the current Locale set in Cutter's user configuration
- * \return a QLocale object describes user's current locale
+ * \brief Get the current Locale set in Cutter's user configuration
+ * Returns a \c QLocale object describing user's current locale
  */
 QLocale Configuration::getCurrLocale() const
 {
@@ -145,8 +144,8 @@ QLocale Configuration::getCurrLocale() const
 }
 
 /*!
- * \brief sets Cutter's locale
- * \param l - a QLocale object describes the locate to configure
+ * \brief Set Cutter's locale
+ * \a l - a QLocale object describes the locate to configure
  */
 void Configuration::setLocale(const QLocale &l)
 {
@@ -154,9 +153,9 @@ void Configuration::setLocale(const QLocale &l)
 }
 
 /*!
- * \brief set Cutter's interface language by a given locale name
- * \param language - a string represents the name of a locale language
- * \return true on success
+ * \brief Set Cutter's interface language by a given locale name
+ * \a QString language - a string represents the name of a locale language
+ * Returns \c true on success
  */
 bool Configuration::setLocaleByName(const QString &language)
 {
@@ -426,6 +425,9 @@ void Configuration::applySavedAsmOptions()
     }
 }
 
+/*!
+ * \brief Get the value of a config var either from r2 or settings, depending on the key.
+ */
 QVariant Configuration::getConfigVar(const QString &key)
 {
     QHash<QString, QVariant>::const_iterator it = asmOptions.find(key);
@@ -458,11 +460,8 @@ QString Configuration::getConfigString(const QString &key)
     return getConfigVar(key).toString();
 }
 
-/**
- * @brief Configuration::setConfig
- * Set radare2 configuration value (e.g. "asm.lines")
- * @param key
- * @param value
+/*!
+ * \brief Set radare2 configuration value (e.g. "asm.lines")
  */
 void Configuration::setConfig(const QString &key, const QVariant &value)
 {
@@ -474,8 +473,8 @@ void Configuration::setConfig(const QString &key, const QVariant &value)
 }
 
 /*!
- * \brief this function will gather and return available translation for Cutter
- * \return a list of all available translations
+ * \brief Gather and return available translations for Cutter.
+ * Returns a \c QStringList of all available translations
  */
 QStringList Configuration::getAvailableTranslations()
 {
@@ -517,8 +516,8 @@ QStringList Configuration::getAvailableTranslations()
 }
 
 /*!
- * \brief check if this is the first time Cutter's is executed on this computer
- * \return true if this is first execution; otherwise returns false.
+ * \brief Check if this is the first time Cutter's is executed on this computer
+ * Returns \c true this is first execution; otherwise returns \c false
  */
 bool Configuration::isFirstExecution()
 {
@@ -531,6 +530,10 @@ bool Configuration::isFirstExecution()
     }
 }
 
+/*!
+ * \brief Get list of available translation directories (depends on configuration and OS).
+ * Returns a \c QStringList of directories
+ */
 QStringList Configuration::getTranslationsDirectories() const
 {
     static const QString cutterTranslationPath = QCoreApplication::applicationDirPath() + QDir::separator()

@@ -12,48 +12,15 @@ public:
     explicit CutterSeekable(QObject *parent = nullptr);
     ~CutterSeekable();
 
-    /**
-     * @brief seek changes current offset.
-     * If the seekable is synchronized with Core, then
-     * the Core offset will be modified and then the CutterCore::seekChanged
-     * signal will be emitted.
-     * In any case, CutterSeekable::seekableSeekChanged is emitted.
-     * @param addr the location to seek at.
-     */
     void seek(RVA addr) { updateSeek(addr, false); }
-
-    /**
-     * @brief toggleSyncWithCore toggles
-     * Core seek synchronization.
-     */
     void toggleSynchronization();
-
-    /**
-     * @brief getOffset returns the seekable offset.
-     * If the seekable is synchronized with Core, this function
-     * is similar to Core()->getOffset.
-     * If it's not synchronized, it will return the seekable current seek.
-     * @return the seekable current offset.
-     */
     RVA getOffset();
-
-    /**
-     * @brief isSynchronized tells whether the seekable
-     * is synchronized with Core or not.
-     * @return boolean
-     */
     bool isSynchronized();
 
 public slots:
-    /**
-     * @brief seekPrev seeks to last location.
-     */
     void seekPrev();
 
 private slots:
-    /**
-     * @brief onCoreSeekChanged
-     */
     void onCoreSeekChanged(RVA addr);
 
 private:

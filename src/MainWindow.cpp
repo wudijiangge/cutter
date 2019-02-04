@@ -94,6 +94,11 @@
 #include <QGraphicsScene>
 #include <QGraphicsView>
 
+/*!
+ * \class MainWindow
+ * \brief This is the Main Window widget from Cutter. It is where
+ * you can dock the widgets.
+ */
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     core(Core()),
@@ -352,7 +357,7 @@ void MainWindow::openNewFileFailed()
 }
 
 /*!
- * \brief displays the WelocmeDialog
+ * \brief displays the WelcomeDialog
  *
  * Upon first execution of Cutter, the WelcomeDialog would be showed to the user.
  * The Welcome dialog would be showed after a reset of Cutter's preferences by the user.
@@ -781,8 +786,9 @@ void MainWindow::on_actionDefault_triggered()
 }
 
 
-/**
- * @brief MainWindow::on_actionNew_triggered
+/*!
+ * \brief MainWindow::on_actionNew_triggered
+ *
  * Open a new Cutter session.
  */
 void MainWindow::on_actionNew_triggered()
@@ -827,8 +833,9 @@ void MainWindow::on_actionRun_Script_triggered()
     Core()->getAsyncTaskManager()->start(runScriptTaskPtr);
 }
 
-/**
- * @brief MainWindow::on_actionOpen_triggered
+/*!
+ * \brief MainWindow::on_actionOpen_triggered
+ *
  * Open a file as in "load (add) a file in current session".
  */
 void MainWindow::on_actionOpen_triggered()

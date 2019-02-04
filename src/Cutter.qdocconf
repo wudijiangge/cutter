@@ -1,0 +1,24 @@
+# General information
+project       = Cutter
+description   = Qt and C++ GUI for radare2
+
+# Input configuration
+headerdirs    = . \
+                ./common \
+	        ./dialogs \
+	        ./menus \
+	        ./widgets
+sourcedirs    = . \
+                ./common \
+	        ./dialogs \
+	        ./menus \
+	        ./widgets
+exampledirs   = .
+imagedirs     = ./img
+
+sources.fileextensions = "*.cpp"
+headers.fileextensions = "*.h"
+
+# Output configuration
+outputdir     = html
+outputformats = HTML

@@ -131,6 +131,14 @@ RCoreLocked CutterCore::core() const
 
 #define CORE_LOCK() RCoreLocked core_lock__(this->core_)
 
+/*!
+ * \class CutterCore
+ * \brief This is the singleton core of Cutter.
+ *
+ * This class can be accessed through the Core() macro that is accessible
+ * in any class.
+ */
+
 CutterCore::CutterCore(QObject *parent) :
     QObject(parent)
 {
@@ -234,7 +242,8 @@ QString CutterCore::sanitizeStringForCommand(QString s)
 }
 
 /**
- * @brief CutterCore::cmd send a command to radare2
+ * \brief Send a command to radare2
+ *
  * @param str the command you want to execute
  * Note that if you want to seek to an address, you should use CutterCore::seek
  * @return command output
@@ -316,7 +325,8 @@ QJsonDocument CutterCore::parseJson(const char *res, const char *cmd)
 }
 
 /**
- * @brief CutterCore::loadFile
+ * \brief CutterCore::loadFile
+ *
  * Load initial file. TODO Maybe use the "o" commands?
  * @param path File path
  * @param baddr Base (RBin) address
